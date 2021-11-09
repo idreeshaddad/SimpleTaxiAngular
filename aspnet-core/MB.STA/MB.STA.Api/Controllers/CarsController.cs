@@ -40,9 +40,13 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public string GetById(int id)
+        public async Task<CarDto> GetByIdAsync(int id)
         {
-            return "value";
+            var car = await _context.Cars.FindAsync(id);
+
+            var carDto = _mapper.Map<CarDto>(car);
+
+            return carDto;
         }
 
         [HttpPost]

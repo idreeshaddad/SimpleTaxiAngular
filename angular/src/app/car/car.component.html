@@ -1,1 +1,62 @@
-<p>car works!</p>
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Model</th>
+                <th>Plate Number</th>
+                <th>Year</th>
+                <th>Fuel Type</th>
+                <th>Car Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of cars">
+                <td>{{car.name}}</td>
+                <td>{{car.model}}</td>
+                <td>{{car.plateNumber}}</td>
+                <td>{{car.makeYear | date: 'yyyy'}}</td>
+                <td>
+
+                    <span [ngSwitch]="car.fuelType">
+                        <p *ngSwitchCase="fuelType.Gasoline">
+                            Gasoline
+                        </p>
+                        <p *ngSwitchCase="fuelType.Diesel">
+                            Diesel
+                        </p>
+                        <p *ngSwitchCase="fuelType.Hybrid">
+                            Hybrid
+                        </p>
+                        <p *ngSwitchCase="fuelType.Electric">
+                            Electric
+                        </p>
+                    </span>
+
+                </td>
+                <td>
+
+                    <span [ngSwitch]="car.carType">
+                        <p *ngSwitchCase="carType.Sedan">
+                            Sedan
+                        </p>
+                        <p *ngSwitchCase="carType.Station">
+                            Station
+                        </p>
+                        <p *ngSwitchCase="carType.Van">
+                            Van
+                        </p>
+                    </span>
+
+                </td>
+                <td>
+                    <a [routerLink]="['/car', car.id]">
+                        <mat-icon>info</mat-icon>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
