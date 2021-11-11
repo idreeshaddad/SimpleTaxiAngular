@@ -10,7 +10,7 @@ import { CarService } from '../car.service';
 })
 export class CarDetailsComponent implements OnInit {
 
-  car!: Car;
+  detailsCar!: Car;
 
   constructor(private carSvc: CarService, 
               private route: ActivatedRoute) { }
@@ -21,7 +21,7 @@ export class CarDetailsComponent implements OnInit {
 
     this.carSvc.getCarById(carId).subscribe(
       car => {
-        this.car = car;
+        this.detailsCar = car;
       }
     );
   }

@@ -11,7 +11,7 @@ import { CarService } from './car.service';
 })
 export class CarComponent implements OnInit {
 
-  cars!: Car[];
+  myBeautifulCars!: Car[];
   carType = CarType;
   fuelType = FuelType;
 
@@ -21,7 +21,7 @@ export class CarComponent implements OnInit {
     
     this.carSvc.getCars().subscribe( 
       cars => {
-        this.cars = cars;
+        this.myBeautifulCars = cars;
       }
     );
 
