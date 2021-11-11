@@ -1,7 +1,120 @@
-<div class="container-fluid">
-    <router-outlet>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
 
-        <!-- The route component pages in app-routing.module.ts will be place here -->
+            <a class="navbar-brand" href="/">
+                <img src="../assets/imgs/logo.png" height="30" class="d-inline-block align-top" alt="Wasy" />
+                <span class="brand-name">SIMTAXI</span>
+            </a>
 
-    </router-outlet>
-</div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/car']">Cars</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main role="main" class="pb-3">
+
+    <router-outlet></router-outlet>
+
+</main>
+
+<footer id="footer">
+
+    <div class="footer-newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h4>Join Our Newsletter</h4>
+                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>SimTaxi</h3>
+                    <p>
+                        Main Street <br>
+                        Amman, Sports Circle<br>
+                        Jordan <br><br>
+                        <strong>Phone:</strong> +96277788899<br>
+                        <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#">Marketing</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Follow us on Social Networks</h4>
+                    <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="fab fa-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="copyright">
+            © Copyright <strong><span>Mibax</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/ -->
+            Designed by <a href="#">Mibax</a>
+        </div>
+    </div>
+
+    <a id="scrollToTop" href="#" class="back-to-top d-flex align-items-center justify-content-center active">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+</footer>

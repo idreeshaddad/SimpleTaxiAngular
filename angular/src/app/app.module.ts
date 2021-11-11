@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { CarDetailsComponent } from './car/car-details/car-details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
