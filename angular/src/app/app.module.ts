@@ -10,13 +10,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { CarDetailsComponent } from './car/car-details/car-details.component';
 import { HomeComponent } from './home/home.component';
+import { CarAddEditComponent } from './car/car-add-edit/car-add-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarComponent,
     CarDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    CarAddEditComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     HttpClientModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

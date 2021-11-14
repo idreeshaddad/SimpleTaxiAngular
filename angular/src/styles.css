@@ -343,3 +343,11 @@ html {
 .pointer {
     cursor: pointer;
 }
+
+.mat-typography {
+    font-size: 16px;
+}
+
+.page-title {
+    font-size: 40px !important;
+}

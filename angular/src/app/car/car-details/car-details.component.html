@@ -1,1 +1,56 @@
-<h2>{{detailsCar?.name}} - {{detailsCar?.model}}</h2>
+<div class="container my-4">
+    <h1 class="page-title">Cars</h1>
+    <hr>
+
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Plate Number</div>
+        <div class="col-md-10">{{detailsCar?.plateNumber}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Name</div>
+        <div class="col-md-10">{{detailsCar?.name}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Year</div>
+        <div class="col-md-10">{{detailsCar?.makeYear | date: 'yyyy'}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Fuel Type</div>
+        <div class="col-md-10">
+            <span [ngSwitch]="detailsCar?.fuelType">
+                <p *ngSwitchCase="fuelType.Gasoline">
+                    Gasoline
+                </p>
+                <p *ngSwitchCase="fuelType.Diesel">
+                    Diesel
+                </p>
+                <p *ngSwitchCase="fuelType.Hybrid">
+                    Hybrid
+                </p>
+                <p *ngSwitchCase="fuelType.Electric">
+                    Electric
+                </p>
+            </span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Car Type</div>
+        <div class="col-md-10">
+            <span [ngSwitch]="detailsCar?.carType">
+                <p *ngSwitchCase="carType.Sedan">
+                    Sedan
+                </p>
+                <p *ngSwitchCase="carType.Station">
+                    Station
+                </p>
+                <p *ngSwitchCase="carType.Van">
+                    Van
+                </p>
+            </span>
+        </div>
+    </div>
+    <hr>
+
+    <button mat-raised-button [routerLink]="['/car']">Back to list</button>
+
+</div>
