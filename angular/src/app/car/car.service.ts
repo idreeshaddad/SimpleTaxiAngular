@@ -19,4 +19,12 @@ export class CarService {
   getCarById(id: number): Observable<Car> {
     return this.http.get<Car>(this.apiUrl + 'GetById/' + id);
   }
+
+  createCar(car: Car): Observable<any> {
+    return this.http.post<Car>(this.apiUrl + 'Create', car);
+  }
+
+  editCar(car: Car): Observable<any> {
+    return this.http.put<Car>(this.apiUrl + 'Edit/' + car.id, car)
+  }
 }

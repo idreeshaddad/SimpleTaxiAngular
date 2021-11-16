@@ -50,13 +50,19 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpPost]
-        public void Create([FromBody] string value)
+        public async Task Create([FromBody] CarDto carDto)
         {
+            var car = _mapper.Map<CarDto, Car>(carDto);
+            await _context.AddAsync(car);
+            await _context.SaveChangesAsync();
         }
 
         [HttpPut("{id}")]
-        public void Edit(int id, [FromBody] string value)
+        public async Task Edit(int id, [FromBody] CarDto carDto)
         {
+            var car = _mapper.Map<CarDto, Car>(carDto);
+            _context.Update(car);
+            await _context.SaveChangesAsync();
         }
 
         [HttpDelete("{id}")]
