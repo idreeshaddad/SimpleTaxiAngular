@@ -3,7 +3,9 @@
     <hr>
 
     <button mat-raised-button color="primary" class="mb-3" [routerLink]="['/car/add']">Add New Car</button>
-    <table class="table">
+
+    <mat-spinner class="mx-auto mt-5" *ngIf="showSpinner"></mat-spinner>
+    <table *ngIf="showSpinner == false" class="table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -37,4 +39,5 @@
             </tr>
         </tbody>
     </table>
+    
 </div>

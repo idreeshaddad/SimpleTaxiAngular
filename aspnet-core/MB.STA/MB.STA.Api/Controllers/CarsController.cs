@@ -5,6 +5,7 @@ using MB.STA.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MB.STA.Api.Controllers
@@ -35,6 +36,8 @@ namespace MB.STA.Api.Controllers
             var cars = await _context.Cars.ToListAsync();
 
             var carDtos = _mapper.Map<List<Car>, List<CarDto>>(cars);
+
+            Thread.Sleep(2000);
 
             return carDtos;
         }

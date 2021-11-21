@@ -17,6 +17,7 @@ export class CarComponent implements OnInit {
   myBeautifulCars!: Car[];
   carType = CarType;
   fuelType = FuelType;
+  showSpinner: boolean = true;
 
   constructor(
     private carSvc: CarService,
@@ -47,7 +48,6 @@ export class CarComponent implements OnInit {
           err => {
             this.snackBar.open("INTERNAL SERVER ERROR 500");
           }
-    
         );
 
       }
@@ -59,7 +59,8 @@ export class CarComponent implements OnInit {
     this.carSvc.getCars().subscribe(
       cars => {
         this.myBeautifulCars = cars;
-      }
+        this.showSpinner = false;
+      },
     );
   }
 
