@@ -25,6 +25,11 @@ export class CarService {
   }
 
   editCar(car: Car): Observable<any> {
-    return this.http.put<Car>(this.apiUrl + 'Edit/' + car.id, car)
+    return this.http.put<Car>(this.apiUrl + 'Edit/' + car.id, car);
   }
+
+  deleteCar(id: number): Observable<any> {
+    return this.http.delete<Car>(this.apiUrl + 'Delete/' + id);
+  }
+
 }

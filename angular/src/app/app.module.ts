@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { CarAddEditComponent } from './car/car-add-edit/car-add-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { DeleteCarDialogComponent } from './car/delete-car-dialog/delete-car-dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     CarComponent,
     CarDetailsComponent,
     HomeComponent,
-    CarAddEditComponent
+    CarAddEditComponent,
+    DeleteCarDialogComponent
   ],
   imports: [
     BrowserModule,

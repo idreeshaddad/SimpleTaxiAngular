@@ -24,11 +24,14 @@
                 <td>{{ car.fuelType }}</td>
                 <td>{{ car.carType }}</td>
                 <td>
-                    <a class="mr-2" [routerLink]="['/car', car.id]">
+                    <a class="mr-2 text-info" [routerLink]="['/car', car.id]">
                         <mat-icon>info</mat-icon>
                     </a>
-                    <a [routerLink]="['/car/edit', car.id]">
+                    <a class="mr-2" [routerLink]="['/car/edit', car.id]">
                         <mat-icon>edit</mat-icon>
+                    </a>
+                    <a class="pointer text-danger" (click)="deleteCar(car.id)">
+                        <mat-icon>delete</mat-icon>
                     </a>
                 </td>
             </tr>
