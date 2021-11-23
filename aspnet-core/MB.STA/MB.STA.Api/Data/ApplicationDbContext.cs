@@ -12,5 +12,14 @@ namespace MB.STA.Api.Data
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<Passenger> Passengers { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Car>().Property(c => c.PlateNumber).IsRequired();
+            modelBuilder.Entity<Car>().Property(c => c.Name).IsRequired();
+        }
     }
 }

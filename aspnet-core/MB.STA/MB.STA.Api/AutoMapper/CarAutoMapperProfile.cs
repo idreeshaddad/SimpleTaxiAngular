@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MB.STA.Dtos;
+using MB.STA.Dtos.Cars;
 using MB.STA.Entities;
 
 namespace MB.STA.Api.AutoMapper

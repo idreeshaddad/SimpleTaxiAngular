@@ -1,11 +1,8 @@
-﻿using MB.STA.Utils.Enums;
+﻿using MB.STA.Dtos.Drivers;
+using MB.STA.Utils.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MB.STA.Dtos
+namespace MB.STA.Dtos.Cars
 {
     public class CarDto
     {
@@ -19,6 +16,6 @@ namespace MB.STA.Dtos
         public CarType CarType { get; set; }
 
         public int? DriverId { get; set; }
-        public string DriverName { get; set; }
+        public DriverDto Driver { get; set; }
     }
 }
