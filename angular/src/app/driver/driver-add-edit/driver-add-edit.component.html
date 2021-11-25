@@ -26,7 +26,7 @@
                 <div>
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Email</mat-label>
-                        <input matInput placeholder="Email" formControlName="email"  required>
+                        <input matInput placeholder="Email" formControlName="email" required>
                         <mat-error>Email is required</mat-error>
                     </mat-form-field>
                 </div>
@@ -42,12 +42,9 @@
 
             <div class="col-md-6">
 
-                <div>
-                    <mat-form-field appearance="fill" class="w-100">
-                        <mat-label>Rating</mat-label>
-                        <input matInput placeholder="Phone Number" formControlName="rating" required>
-                        <mat-error>Rating is required</mat-error>
-                    </mat-form-field>
+                <div class="mb-3">
+                    <div class="my-2">Rating</div>
+                    <ngb-rating class="ngb-rating mb-2" formControlName="rating"></ngb-rating>
                 </div>
 
                 <div>
