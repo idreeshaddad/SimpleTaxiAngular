@@ -55,7 +55,7 @@ export class CarAddEditComponent implements OnInit {
         this.carSvc.createCar(car).subscribe(
           res => {
             this.snackBar.open("Car has been created successfully");
-            this.router.navigate(["/car"]);
+            this.router.navigate(["/cars"]);
           }
         )
       }
@@ -63,7 +63,7 @@ export class CarAddEditComponent implements OnInit {
         this.carSvc.editCar(car).subscribe( 
           res => {
             this.snackBar.open("Car has been updated successfully");
-            this.router.navigate(["/car"]);
+            this.router.navigate(["/cars"]);
           }
         );
       }

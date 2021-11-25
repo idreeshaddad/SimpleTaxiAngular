@@ -1,0 +1,41 @@
+<div class="container my-4">
+    <h1 class="page-title">Drivers</h1>
+    <hr>
+
+    <button mat-raised-button color="primary" class="mb-3" [routerLink]="['/drivers/add']">Add New Driver</button>
+    
+    <mat-spinner class="mx-auto mt-5" *ngIf="showSpinner"></mat-spinner>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Rating</th>
+                <th>Gender</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let driver of drivers">
+                <td>{{ driver.name }}</td>
+                <td>{{ driver.email }}</td>
+                <td>{{ driver.phoneNumber }}</td>
+                <td>{{ driver.rating }}</td>
+                <td>{{ driver.gender }}</td>
+                <td>
+                    <a class="mr-2 text-info" [routerLink]="['/drivers', driver.id]">
+                        <mat-icon>info</mat-icon>
+                    </a>
+                    <a class="mr-2" [routerLink]="['/drivers/edit', driver.id]">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a class="pointer text-danger" (click)="deleteDriver(driver.id)">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

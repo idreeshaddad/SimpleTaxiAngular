@@ -65,7 +65,7 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] DriverDto driverDto)
+        public async Task EditDriver(int id, [FromBody] DriverDto driverDto)
         {
             var driver = await _context.Drivers.FindAsync(id);
             _mapper.Map(driverDto, driver);
@@ -75,7 +75,7 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteAsync(int id)
+        public async Task DeleteDriver(int id)
         {
             var driver = await _context.Drivers.FindAsync(id);
             _context.Drivers.Remove(driver);

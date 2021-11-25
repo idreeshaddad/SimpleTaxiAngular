@@ -2,7 +2,7 @@
     <h1 class="page-title">Cars</h1>
     <hr>
 
-    <button mat-raised-button color="primary" class="mb-3" [routerLink]="['/car/add']">Add New Car</button>
+    <button mat-raised-button color="primary" class="mb-3" [routerLink]="['/cars/add']">Add New Car</button>
 
     <mat-spinner class="mx-auto mt-5" *ngIf="showSpinner"></mat-spinner>
     <table *ngIf="showSpinner == false" class="table">
@@ -26,10 +26,10 @@
                 <td>{{ car.fuelType }}</td>
                 <td>{{ car.carType }}</td>
                 <td>
-                    <a class="mr-2 text-info" [routerLink]="['/car', car.id]">
+                    <a class="mr-2 text-info" [routerLink]="['/cars', car.id]">
                         <mat-icon>info</mat-icon>
                     </a>
-                    <a class="mr-2" [routerLink]="['/car/edit', car.id]">
+                    <a class="mr-2" [routerLink]="['/cars/edit', car.id]">
                         <mat-icon>edit</mat-icon>
                     </a>
                     <a class="pointer text-danger" (click)="deleteCar(car.id)">

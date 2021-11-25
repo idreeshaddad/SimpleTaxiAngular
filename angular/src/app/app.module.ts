@@ -14,6 +14,10 @@ import { CarAddEditComponent } from './car/car-add-edit/car-add-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { DeleteCarDialogComponent } from './car/delete-car-dialog/delete-car-dialog.component';
+import { DriverComponent } from './driver/driver.component';
+import { DriverAddEditComponent } from './driver/driver-add-edit/driver-add-edit.component';
+import { DriverDetailsComponent } from './driver/driver-details/driver-details.component';
+import { DriverDeleteDialogComponent } from './driver/driver-delete-dialog/driver-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { DeleteCarDialogComponent } from './car/delete-car-dialog/delete-car-dia
     CarDetailsComponent,
     HomeComponent,
     CarAddEditComponent,
-    DeleteCarDialogComponent
+    DeleteCarDialogComponent,
+    DriverComponent,
+    DriverAddEditComponent,
+    DriverDetailsComponent,
+    DriverDeleteDialogComponent
   ],
   imports: [
     BrowserModule,
