@@ -60,7 +60,7 @@ export class CarAddEditComponent implements OnInit {
         )
       }
       else {
-        this.carSvc.editCar(car).subscribe( 
+        this.carSvc.editCar(car).subscribe(
           res => {
             this.snackBar.open("Car has been updated successfully");
             this.router.navigate(["/cars"]);
@@ -97,48 +97,6 @@ export class CarAddEditComponent implements OnInit {
       }
     );
   }
-
-  // private getLookups(): void {
-
-  //   this.getBrands();
-  //   this.getCountries();
-  // }
-
-  // private getCountries(): void {
-
-  //   this.CarsSvc.getCountries().subscribe(countries => {
-
-  //     this.countries = countries;
-
-  //     this.filteredCountries = this.carForm.controls.country.valueChanges
-  //       .pipe(
-  //         startWith(''),
-  //         map(value => typeof value === 'string' ? value : value.name),
-  //         map(name => name ? this.filterCountry(name) : this.countries.slice())
-  //       );
-  //   })
-  // }
-
-  // private filterCountry(name: string): Country[] {
-
-  //   const filterValue = name.toLowerCase();
-  //   return this.countries.filter(country => country.name.toLowerCase().includes(filterValue));
-  // }
-
-  // private getBrands(): void {
-
-  //   this.CarsSvc.getBrands().subscribe(brands => {
-
-  //     this.brands = brands;
-  //   })
-  // }
-
-  // private getCarModels(brandId: number): void {
-
-  //   this.CarsSvc.getCarModels(brandId).subscribe(carModel => {
-  //     this.carModels = carModel;
-  //   })
-  // }
 
   //#endregion
 

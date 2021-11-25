@@ -1,1 +1,29 @@
-<p>driver-details works!</p>
+<div class="container my-4">
+    <h1 class="page-title">Driver Details</h1>
+    <hr>
+    <button mat-raised-button [routerLink]="['/drivers']">Back to list</button>
+    <hr>
+
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Name</div>
+        <div class="col-md-10">{{detailsDriver?.name}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Email</div>
+        <div class="col-md-10">{{detailsDriver?.email}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Phone Number</div>
+        <div class="col-md-10">{{detailsDriver?.phoneNumber}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Rating</div>
+        <div class="col-md-10">{{ detailsDriver?.rating }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Gender</div>
+        <div class="col-md-10">{{ detailsDriver?.gender }}</div>
+    </div>
+    
+</div>

@@ -13,19 +13,18 @@ import { CarService } from '../car.service';
 export class CarDetailsComponent implements OnInit {
 
   detailsCar!: Car;
-  fuelType = FuelType;
-  carType = CarType;
 
-  constructor(private carSvc: CarService, 
-              private route: ActivatedRoute) { }
+  constructor(
+    private carSvc: CarService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     const carId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.carSvc.getCarById(carId).subscribe(
-      car => {
-        this.detailsCar = car;
+      carFromServer => {
+        this.detailsCar = carFromServer;
       }
     );
   }
