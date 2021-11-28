@@ -57,11 +57,14 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpPost]
-        public async Task CreateDriver([FromBody] DriverDto driverDto)
+        public async Task<DriverDto> CreateDriver([FromBody] DriverDto driverDto)
         {
             var driver = _mapper.Map<Driver>(driverDto);
             await _context.Drivers.AddAsync(driver);
             await _context.SaveChangesAsync();
+
+            driverDto.Id = driver.Id;
+            return driverDto;
         }
 
         [HttpPut("{id}")]

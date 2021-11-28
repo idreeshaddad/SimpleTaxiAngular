@@ -41,7 +41,7 @@ export class DriverComponent implements OnInit {
             this.getDrivers();
           },
           err => {
-            this.snackBar.open("INTERNAL SERVER ERROR 500");
+            this.snackBar.open("INTERNAL SERVER ERROR");
           }
         );
 
@@ -55,6 +55,9 @@ export class DriverComponent implements OnInit {
       driversFromServer => {
         this.drivers = driversFromServer;
         this.showSpinner = false;
+      },
+      err => {
+        this.snackBar.open("INTERNAL SERVER ERROR 500");
       }
     );
 

@@ -20,7 +20,7 @@ export class DriverService {
     return this.http.get<Driver>(this.apiUrl + 'GetDriverById/' + id);
   }
 
-  createDriver(driver: Driver): Observable<any> {
+  createDriver(driver: Driver): Observable<Driver> {
     return this.http.post<Driver>(this.apiUrl + 'CreateDriver', driver)
   }
 
