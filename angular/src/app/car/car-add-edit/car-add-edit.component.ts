@@ -83,16 +83,16 @@ export class CarAddEditComponent implements OnInit {
   private preparePageForEditMode(): void {
 
     this.carSvc.getCarById(this.carId).subscribe(
-      car => {
+      carFromServer => {
 
         this.carForm.patchValue({
-          id: car.id,
-          plateNumber: car.plateNumber,
-          name: car.name,
-          model: car.model,
-          makeYear: car.makeYear,
-          fuelType: car.fuelType,
-          carType: car.carType
+          id: carFromServer.id,
+          plateNumber: carFromServer.plateNumber,
+          name: carFromServer.name,
+          model: carFromServer.model,
+          makeYear: carFromServer.makeYear,
+          fuelType: carFromServer.fuelType,
+          carType: carFromServer.carType
         });
       }
     );

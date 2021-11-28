@@ -1,13 +1,16 @@
-﻿using System;
+﻿using MB.STA.Dtos.Cars;
+using MB.STA.Dtos.Drivers;
+using MB.STA.Dtos.Passengers;
+using System;
 using System.Collections.Generic;
 
-namespace MB.STA.Entities
+namespace MB.STA.Dtos.Bookings
 {
-    public class Booking
+    public class BookingDto
     {
-        public Booking()
+        public BookingDto()
         {
-            Passengers = new List<Passenger>();
+            Passengers = new List<PassengerDto>();
         }
 
         public int Id { get; set; }
@@ -19,11 +22,11 @@ namespace MB.STA.Entities
         public DateTime? PaymentDate { get; set; }
 
         public int? CarId { get; set; }
-        public Car Car { get; set; }
+        public CarDto Car { get; set; }
 
         public int? DriverId { get; set; }
-        public Driver Driver { get; set; }
+        public DriverDto Driver { get; set; }
 
-        public List<Passenger> Passengers { get; set; }
+        public List<PassengerDto> Passengers { get; set; }
     }
 }
