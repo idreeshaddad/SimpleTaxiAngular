@@ -1,0 +1,38 @@
+<div class="container my-4">
+    <h1 class="page-title">Bookings</h1>
+    <hr>
+
+    <button mat-raised-button color="primary" class="mb-3" [routerLink]="['/bookings/add']">Add New Booking</button>
+    
+    <mat-spinner class="mx-auto mt-5" *ngIf="showSpinner"></mat-spinner>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Gender</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of bookings">
+                <td>{{booking.name}}</td>
+                <td>{{booking.email}}</td>
+                <td>{{booking.phoneNumber}}</td>
+                <td>{{booking.gender}}</td>
+                <td>
+                    <a class="text-info" [routerLink]="['/bookings/', booking.id]">
+                        <mat-icon>info</mat-icon>
+                    </a>
+                    <a class="ml-1" [routerLink]="['/bookings/edit', booking.id]">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <!-- <a class="text-danger pointer" (click)="deleteBooking(booking.id)">
+                        <mat-icon>delete</mat-icon>
+                    </a> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
