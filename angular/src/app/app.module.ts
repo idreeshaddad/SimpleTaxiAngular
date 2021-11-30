@@ -18,6 +18,10 @@ import { DriverComponent } from './driver/driver.component';
 import { DriverAddEditComponent } from './driver/driver-add-edit/driver-add-edit.component';
 import { DriverDetailsComponent } from './driver/driver-details/driver-details.component';
 import { DriverDeleteDialogComponent } from './driver/driver-delete-dialog/driver-delete-dialog.component';
+import { PassengerComponent } from './passenger/passenger.component';
+import { PassengerDetailsComponent } from './passenger/passenger-details/passenger-details.component';
+import { PassengerAddEditComponent } from './passenger/passenger-add-edit/passenger-add-edit.component';
+import { PassengerDeleteDialogComponent } from './passenger/passenger-delete-dialog/passenger-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { DriverDeleteDialogComponent } from './driver/driver-delete-dialog/drive
     DriverComponent,
     DriverAddEditComponent,
     DriverDetailsComponent,
-    DriverDeleteDialogComponent
+    DriverDeleteDialogComponent,
+    PassengerComponent,
+    PassengerDetailsComponent,
+    PassengerAddEditComponent,
+    PassengerDeleteDialogComponent
   ],
   imports: [
     BrowserModule,

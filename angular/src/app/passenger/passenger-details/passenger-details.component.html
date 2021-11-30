@@ -1,0 +1,25 @@
+<div class="container my-4">
+    <h1 class="page-title">Passenger Details</h1>
+    <hr>
+    <button mat-raised-button [routerLink]="['/passengers']">Back to list</button>
+    <hr>
+
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Name</div>
+        <div class="col-md-10">{{passenger?.name}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Email</div>
+        <div class="col-md-10">{{passenger?.email}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Phone Number</div>
+        <div class="col-md-10">{{passenger?.phoneNumber}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Gender</div>
+        <div class="col-md-10">{{ passenger?.gender }}
+        </div>
+    </div>
+    
+</div>

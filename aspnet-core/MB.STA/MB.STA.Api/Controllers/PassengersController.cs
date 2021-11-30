@@ -85,7 +85,7 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task DeletePassenger(int id)
         {
             var passenger = await _context.Passengers.FindAsync(id);
 

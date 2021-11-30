@@ -7,6 +7,9 @@ import { DriverAddEditComponent } from './driver/driver-add-edit/driver-add-edit
 import { DriverDetailsComponent } from './driver/driver-details/driver-details.component';
 import { DriverComponent } from './driver/driver.component';
 import { HomeComponent } from './home/home.component';
+import { PassengerAddEditComponent } from './passenger/passenger-add-edit/passenger-add-edit.component';
+import { PassengerDetailsComponent } from './passenger/passenger-details/passenger-details.component';
+import { PassengerComponent } from './passenger/passenger.component';
 
 const routes: Routes = [
   { path: 'cars', component: CarComponent },
@@ -18,6 +21,11 @@ const routes: Routes = [
   { path: 'drivers/add', component: DriverAddEditComponent },
   { path: 'drivers/:id', component: DriverDetailsComponent },
   { path: 'drivers/edit/:id', component: DriverAddEditComponent },
+
+  { path: 'passengers', component: PassengerComponent},
+  { path: 'passengers/add', component: PassengerAddEditComponent },
+  { path: 'passengers/:id', component: PassengerDetailsComponent },
+  { path: 'passengers/edit/:id', component: PassengerAddEditComponent },
 
   // Wildcard ** should be the last route
   { path: '**', component: HomeComponent },
