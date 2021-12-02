@@ -1,0 +1,95 @@
+<div class="container my-4">
+    <h1 *ngIf="pageMode == pageModeEnum.Add">Create Booking</h1>
+    <h1 *ngIf="pageMode == pageModeEnum.Edit">Save Booking</h1>
+    <hr>
+
+    <form [formGroup]="bookingForm" (ngSubmit)="submitForm()">
+
+        <div>
+            <button class="mr-2" type="submit" mat-raised-button color="primary">
+                <span *ngIf="pageMode == pageModeEnum.Add">Add</span>
+                <span *ngIf="pageMode == pageModeEnum.Edit">Save</span>
+            </button>
+            <button mat-raised-button [routerLink]="['/bookings']">Cancel</button>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <div>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Pickup Time</mat-label>
+                        <input matInput [matDatepicker]="pickupTimePicker" formControlName="pickupTime" required>
+                        <mat-datepicker-toggle matSuffix [for]="pickupTimePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #pickupTimePicker></mat-datepicker>
+                        <mat-error>Pickup time is required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>From Address</mat-label>
+                        <input matInput placeholder="fromAddress" formControlName="fromAddress" required>
+                        <mat-error>From Address is required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>To Address</mat-label>
+                        <input matInput placeholder="toAddress" formControlName="toAddress" required>
+                        <mat-error>To Address is required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Price</mat-label>
+                        <input matInput placeholder="price" formControlName="price" required>
+                        <mat-error>Price is required</mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Drive</mat-label>
+                        <mat-select formControlName="driver">
+                            <mat-option *ngFor="let driver of drivers" [value]="driver.id">
+                                {{ driver.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Car</mat-label>
+                        <mat-select formControlName="car">
+                            <mat-option *ngFor="let car of cars" [value]="car.id">
+                                {{ car.name }} - {{ car.plateNumber }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="my-4">
+                    <mat-checkbox formControlName="isPaid">Is Paid</mat-checkbox>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Payment Date</mat-label>
+                        <input matInput [matDatepicker]="paymentDatePicker" formControlName="paymentDate">
+                        <mat-datepicker-toggle matSuffix [for]="paymentDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #paymentDatePicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

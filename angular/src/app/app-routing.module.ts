@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookingAddEditComponent } from './booking/booking-add-edit/booking-add-edit.component';
+import { BookingDetailsComponent } from './booking/booking-details/booking-details.component';
+import { BookingComponent } from './booking/booking.component';
 import { CarAddEditComponent } from './car/car-add-edit/car-add-edit.component';
 import { CarDetailsComponent } from './car/car-details/car-details.component';
 import { CarComponent } from './car/car.component';
@@ -26,6 +29,11 @@ const routes: Routes = [
   { path: 'passengers/add', component: PassengerAddEditComponent },
   { path: 'passengers/:id', component: PassengerDetailsComponent },
   { path: 'passengers/edit/:id', component: PassengerAddEditComponent },
+
+  { path: 'bookings', component: BookingComponent},
+  { path: 'bookings/add', component: BookingAddEditComponent },
+  { path: 'bookings/:id', component: BookingDetailsComponent },
+  { path: 'bookings/edit/:id', component: BookingAddEditComponent },
 
   // Wildcard ** should be the last route
   { path: '**', component: HomeComponent },
