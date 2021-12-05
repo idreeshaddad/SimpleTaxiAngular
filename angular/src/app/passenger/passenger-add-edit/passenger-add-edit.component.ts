@@ -20,7 +20,7 @@ export class PassengerAddEditComponent implements OnInit {
   passengerForm = this.fb.group({
     id: [0],
     name: ['', Validators.required],
-    email: ['', Validators.required],
+    email: [''],
     phoneNumber: ['', Validators.required],
     gender: ['', Validators.required]
   });

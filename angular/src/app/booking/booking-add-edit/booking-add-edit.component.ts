@@ -4,9 +4,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarService } from 'src/app/car/car.service';
 import { DriverService } from 'src/app/driver/driver.service';
+import { PassengerService } from 'src/app/passenger/passenger.service';
 import { PageMode } from 'src/app/shared/enums/pageMode.enum';
 import { Car } from 'src/app/shared/models/Car';
 import { Driver } from 'src/app/shared/models/Driver';
+import { Passenger } from 'src/app/shared/models/Passenger';
 import { BookingService } from '../booking.service';
 
 @Component({
@@ -21,8 +23,9 @@ export class BookingAddEditComponent implements OnInit {
   bookingId: number = 0;
   pageMode: PageMode = PageMode.Add;
 
-  drivers!: Driver[];
-  cars!: Car[];
+  driversLookup!: Driver[];
+  carsLookup!: Car[];
+  passengersLookup!: Passenger[];
 
   bookingForm = this.fb.group({
     id: [0],
@@ -40,6 +43,7 @@ export class BookingAddEditComponent implements OnInit {
   constructor(
     private bookingSvc: BookingService,
     private driverSvc: DriverService,
+    private passengerSvc: PassengerService,
     private carSvc: CarService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -55,8 +59,7 @@ export class BookingAddEditComponent implements OnInit {
       this.preparePageForEdit();
     }
 
-    this.getDrivers();
-    this.getCars();
+    this.getLookups();
   }
 
   submitForm(): void {
@@ -125,11 +128,18 @@ export class BookingAddEditComponent implements OnInit {
     );
   }
 
+  private getLookups() {
+    
+    this.getDrivers();
+    this.getCars();
+    this.getPassengers();
+  }
+
   private getDrivers() {
 
     this.driverSvc.getDrivers().subscribe(
       driversFromServer => {
-        this.drivers = driversFromServer;
+        this.driversLookup = driversFromServer;
       }
     );
   }
@@ -138,7 +148,16 @@ export class BookingAddEditComponent implements OnInit {
 
     this.carSvc.getCars().subscribe(
       carsFromServer => {
-        this.cars = carsFromServer;
+        this.carsLookup = carsFromServer;
+      }
+    );
+  }
+
+  private getPassengers() {
+
+    this.passengerSvc.getPassengers().subscribe(
+      res => {
+        this.passengersLookup = res;
       }
     );
   }

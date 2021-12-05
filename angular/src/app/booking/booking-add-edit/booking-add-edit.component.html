@@ -51,6 +51,17 @@
                     </mat-form-field>
                 </div>
 
+                <div>
+                    <mat-form-field appearance="fill"  class="w-100">
+                        <mat-label>Passengers</mat-label>
+                        <mat-select formControlName="passengers" multiple>
+                            <mat-option *ngFor="let passenger of passengersLookup" [value]="passenger">
+                                {{passenger.name}} - {{passenger.phoneNumber}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
             </div>
             <div class="col-md-6">
 
@@ -58,7 +69,7 @@
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Driver</mat-label>
                         <mat-select formControlName="driverId">
-                            <mat-option *ngFor="let driver of drivers" [value]="driver.id">
+                            <mat-option *ngFor="let driver of driversLookup" [value]="driver.id">
                                 {{ driver.name }}
                             </mat-option>
                         </mat-select>
@@ -69,7 +80,7 @@
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Car</mat-label>
                         <mat-select formControlName="carId">
-                            <mat-option *ngFor="let car of cars" [value]="car.id">
+                            <mat-option *ngFor="let car of carsLookup" [value]="car.id">
                                 {{ car.name }} - {{ car.plateNumber }}
                             </mat-option>
                         </mat-select>

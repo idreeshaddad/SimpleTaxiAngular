@@ -15,7 +15,7 @@
                 <th>Price</th>
                 <th>Driver</th>
                 <th>Car</th>
-                <th>Passenger</th>
+
                 <th>Is Paid</th>
                 <th>Payment Date</th>
                 <th>Actions</th>
@@ -30,7 +30,7 @@
                 <td>{{booking.price}} JOD</td>
                 <td>{{booking.driver?.name}}</td>
                 <td>{{booking.car?.name}}</td>
-                <td> </td>
+
                 <td>
                     <span *ngIf="booking.isPaid">
                         <mat-icon class="text-success">check_circle</mat-icon>

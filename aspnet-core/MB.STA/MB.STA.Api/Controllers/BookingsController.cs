@@ -4,6 +4,7 @@ using MB.STA.Dtos.Bookings;
 using MB.STA.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -64,6 +65,8 @@ namespace MB.STA.Api.Controllers
         {
             var booking = _mapper.Map<Booking>(bookingDto);
 
+            await AddPassengersToBooking(bookingDto, booking);
+
             await _context.AddAsync(booking);
             await _context.SaveChangesAsync();
         }
@@ -109,7 +112,36 @@ namespace MB.STA.Api.Controllers
 
             _context.Remove(booking);
             await _context.SaveChangesAsync();
-        } 
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private async Task AddPassengersToBooking(BookingDto bookingDto, Booking booking)
+        {
+            var passengerIds = GetPassengerIdsFromDto(bookingDto);
+
+            var passengers = await _context
+                                    .Passengers
+                                    .Where(p => passengerIds.Contains(p.Id))
+                                    .ToListAsync();
+
+            booking.Passengers.Clear();
+            booking.Passengers.AddRange(passengers);
+        }
+
+        private List<int> GetPassengerIdsFromDto(BookingDto bookingDto)
+        {
+            var passengerIds = new List<int>();
+
+            foreach (var pngr in bookingDto.Passengers)
+            {
+                passengerIds.Add(pngr.Id);
+            }
+
+            return passengerIds;
+        }
 
         #endregion
     }
