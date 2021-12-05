@@ -79,7 +79,24 @@ namespace MB.STA.Api.Controllers
                             .Where(b => b.Id == id)
                             .SingleOrDefaultAsync();
 
+
             _mapper.Map(bookingDto, booking);
+
+            // Load car from db and add to booking entity
+            if (bookingDto.CarId.HasValue)
+            {
+                var car = await _context.Cars.FindAsync(bookingDto.CarId);
+                booking.Car = car;
+            }
+            // Load driver from db and add to booking entity
+            if (bookingDto.DriverId.HasValue)
+            {
+                var driver = await _context.Drivers.FindAsync(bookingDto.DriverId);
+                booking.Driver = driver;
+            }
+
+            if (booking.IsPaid == false)
+                booking.PaymentDate = null;
 
             _context.Update(booking);
             await _context.SaveChangesAsync();

@@ -10,7 +10,9 @@ export interface Booking {
     price: number;
     isPaid: boolean;
     paymentDate: Date;
+    carId?: number;
     car: Car;
+    driverId?: number;
     driver: Driver;
     passengers: Passenger[]
 }

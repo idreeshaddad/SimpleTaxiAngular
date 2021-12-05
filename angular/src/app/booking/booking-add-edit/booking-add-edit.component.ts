@@ -30,10 +30,10 @@ export class BookingAddEditComponent implements OnInit {
     fromAddress: ['', Validators.required],
     toAddress: ['', Validators.required],
     price: ['', Validators.required],
-    isPaid: [''],
+    isPaid: [false],
     paymentDate: [''],
-    car: [''],
-    driver: [''],
+    carId: [''],
+    driverId: [''],
     passengers: ['']
   });
 
@@ -117,8 +117,8 @@ export class BookingAddEditComponent implements OnInit {
           price: bookingFromServer.price,
           isPaid: bookingFromServer.isPaid,
           paymentDate: bookingFromServer.paymentDate,
-          car: bookingFromServer.car,
-          driver: bookingFromServer.driver,
+          carId: bookingFromServer.carId,
+          driverId: bookingFromServer.driverId,
           passengers: bookingFromServer.passengers,
         });
       }

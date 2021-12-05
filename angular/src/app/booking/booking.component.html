@@ -1,4 +1,4 @@
-<div class="container my-4">
+<div class="container-fluid my-4">
     <h1 class="page-title">Bookings</h1>
     <hr>
 
@@ -27,12 +27,19 @@
                 <td>{{booking.pickUpTime | date: 'short'}}</td>
                 <td>{{booking.fromAddress}}</td>
                 <td>{{booking.toAddress}}</td>
-                <td>{{booking.price}}</td>
+                <td>{{booking.price}} JOD</td>
                 <td>{{booking.driver?.name}}</td>
                 <td>{{booking.car?.name}}</td>
                 <td> </td>
-                <td>{{booking.isPaid}}</td>
-                <td>{{booking.paymentDate}}</td>
+                <td>
+                    <span *ngIf="booking.isPaid">
+                        <mat-icon class="text-success">check_circle</mat-icon>
+                    </span>
+                    <span *ngIf="booking.isPaid == false">
+                        <mat-icon class="text-danger">cancel</mat-icon>
+                    </span>
+                </td>
+                <td>{{booking.paymentDate | date: 'short'}}</td>
                 <td>
                     <a class="text-info" [routerLink]="['/bookings/', booking.id]">
                         <mat-icon>info</mat-icon>
