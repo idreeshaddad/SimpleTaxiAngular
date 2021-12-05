@@ -1,1 +1,76 @@
-<p>booking-details works!</p>
+<div class="container my-4">
+    <h1 class="page-title">Booking Details</h1>
+    <hr>
+    <button mat-raised-button [routerLink]="['/bookings']">Back to list</button>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="row mb-4">
+                <div class="col-md-4 font-weight-bold">Booking Number</div>
+                <div class="col-md-8">{{booking?.id}}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Pickup Time</div>
+                <div class="col-md-8">{{booking?.pickUpTime | date: 'short'}}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">From Address</div>
+                <div class="col-md-8">{{booking?.fromAddress}}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Price</div>
+                <div class="col-md-8">{{ booking?.price }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Is Paid</div>
+                <div class="col-md-8">
+                    <span *ngIf="booking?.isPaid">
+                        <mat-icon class="text-success">check_circle</mat-icon>
+                    </span>
+                    <span *ngIf="booking?.isPaid == false">
+                        <mat-icon class="text-danger">cancel</mat-icon>
+                    </span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Payment Date</div>
+                <div class="col-md-8">{{ booking?.paymentDate | date: 'short' }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Car</div>
+                <div class="col-md-8">{{ booking?.car?.name }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Driver</div>
+                <div class="col-md-8">{{ booking?.driver?.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1>Passengers</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let passenger of booking.passengers">
+                <td>{{ passenger.name }}</td>
+                <td>{{ passenger.phoneNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
