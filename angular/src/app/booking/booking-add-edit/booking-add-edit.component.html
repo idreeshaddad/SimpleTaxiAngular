@@ -54,7 +54,7 @@
                 <div>
                     <mat-form-field appearance="fill"  class="w-100">
                         <mat-label>Passengers</mat-label>
-                        <mat-select formControlName="passengers" multiple>
+                        <mat-select formControlName="passengers" multiple [compareWith]="comparePassengersFn">
                             <mat-option *ngFor="let passenger of passengersLookup" [value]="passenger">
                                 {{passenger.name}} - {{passenger.phoneNumber}}
                             </mat-option>

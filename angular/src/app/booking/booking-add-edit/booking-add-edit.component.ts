@@ -95,6 +95,11 @@ export class BookingAddEditComponent implements OnInit {
 
   }
 
+  comparePassengersFn(pass1: Passenger, pass2: Passenger): boolean {
+
+    return pass1 && pass2 ? pass1.id === pass2.id : pass1 === pass2;
+  }
+
   //#region Private Functions
 
 

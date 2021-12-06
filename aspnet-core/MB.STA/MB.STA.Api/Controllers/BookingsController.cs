@@ -65,7 +65,7 @@ namespace MB.STA.Api.Controllers
         {
             var booking = _mapper.Map<Booking>(bookingDto);
 
-            await AddPassengersToBooking(bookingDto, booking);
+            await UpdateBookingPassengers(bookingDto, booking);
 
             await _context.AddAsync(booking);
             await _context.SaveChangesAsync();
@@ -82,8 +82,9 @@ namespace MB.STA.Api.Controllers
                             .Where(b => b.Id == id)
                             .SingleOrDefaultAsync();
 
-
             _mapper.Map(bookingDto, booking);
+            
+            await UpdateBookingPassengers(bookingDto, booking);
 
             // Load car from db and add to booking entity
             if (bookingDto.CarId.HasValue)
@@ -118,7 +119,7 @@ namespace MB.STA.Api.Controllers
 
         #region Private Methods
 
-        private async Task AddPassengersToBooking(BookingDto bookingDto, Booking booking)
+        private async Task UpdateBookingPassengers(BookingDto bookingDto, Booking booking)
         {
             var passengerIds = GetPassengerIdsFromDto(bookingDto);
 
