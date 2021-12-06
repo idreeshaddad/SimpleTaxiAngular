@@ -30,7 +30,7 @@ namespace MB.STA.Api.Controllers
         #region Services
 
         [HttpGet]
-        public async Task<List<DriverDto>> GetList()
+        public async Task<List<DriverDto>> GetDrivers()
         {
             var drivers = await _context.Drivers.ToListAsync();
             var driverDtos = _mapper.Map<List<DriverDto>>(drivers);

@@ -13,7 +13,7 @@ export class DriverService {
   constructor(private http: HttpClient) { }
 
   getDrivers(): Observable<Driver[]> {
-    return this.http.get<Driver[]>(this.apiUrl + 'GetList');
+    return this.http.get<Driver[]>(this.apiUrl + 'GetDrivers');
   }
 
   getDriverById(id: number): Observable<Driver> {

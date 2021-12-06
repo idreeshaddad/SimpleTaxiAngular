@@ -30,7 +30,7 @@ namespace MB.STA.Api.Controllers
         #region Services
 
         [HttpGet]
-        public async Task<List<CarDto>> GetList()
+        public async Task<List<CarDto>> GetCars()
         {
             var cars = await _context.Cars.ToListAsync();
 
@@ -40,7 +40,7 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<CarDto> GetByIdAsync(int id)
+        public async Task<CarDto> GetCarById(int id)
         {
             var car = await _context.Cars.FindAsync(id);
 
@@ -50,7 +50,7 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpPost]
-        public async Task Create([FromBody] CarDto carDto)
+        public async Task CreateCar([FromBody] CarDto carDto)
         {
             var car = _mapper.Map<CarDto, Car>(carDto);
             await _context.AddAsync(car);
@@ -58,7 +58,7 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task Edit(int id, [FromBody] CarDto carDto)
+        public async Task EditCar(int id, [FromBody] CarDto carDto)
         {
             var car = _mapper.Map<CarDto, Car>(carDto);
             _context.Update(car);
@@ -66,7 +66,7 @@ namespace MB.STA.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteAsync(int id)
+        public async Task DeleteCar(int id)
         {
             var car = await _context.Cars.FindAsync(id);
             _context.Cars.Remove(car);
