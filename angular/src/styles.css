@@ -355,3 +355,11 @@ html {
 .ngb-rating {
     font-size: 32px;
 }
+
+.mat-progress-spinner {
+    position: absolute !important;
+    top: 30%;
+    left: 50%;
+    margin-left: -50px !important;
+    z-index: 999;
+}
