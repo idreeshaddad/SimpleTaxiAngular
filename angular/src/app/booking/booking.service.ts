@@ -34,4 +34,9 @@ export class BookingService {
   deleteBooking(id: number): Observable<any> {
     return this.http.delete<Booking>(this.apiUrl + "DeleteBooking/" + id);
   }
+
+  payBooking(id: number): Observable<any> {
+
+    return this.http.post<Booking>(this.apiUrl + "PayBooking/" + id, null);
+  }
 }

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Booking } from '../shared/models/Booking';
 import { BookingDeleteDialogComponent } from './booking-delete-dialog/booking-delete-dialog.component';
 import { BookingService } from './booking.service';
+import { PayBookingDialogComponent } from './pay-booking-dialog/pay-booking-dialog.component';
 
 @Component({
   selector: 'app-booking',
@@ -38,7 +39,7 @@ export class BookingComponent implements OnInit {
 
         this.bookingSvc.deleteBooking(id).subscribe(
           res => {
-            this.snackbar.open("Passenger has been deleted successfully");
+            this.snackbar.open("Booking has been deleted successfully");
             this.getBookings();
           },
           err => {
@@ -49,6 +50,32 @@ export class BookingComponent implements OnInit {
       }
 
     });
+  }
+
+  payBooking(id: number): void {
+
+    const dialogRef = this.dialog.open(PayBookingDialogComponent, {
+      width: '460px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      if(result) {
+
+        this.bookingSvc.payBooking(id).subscribe(
+          res => {
+            this.snackbar.open("Booking has been paid successfully");
+            this.getBookings();
+          },
+          err => {
+            this.snackbar.open("Server Error!!");
+
+          }
+        );
+      }
+
+    });
+
   }
 
   //#region Private Functions

@@ -115,6 +115,17 @@ namespace MB.STA.Api.Controllers
             await _context.SaveChangesAsync();
         }
 
+        [HttpPost("{id}")]
+        public async Task PayBooking(int id)
+        {
+            var booking = await _context.Bookings.FindAsync(id);
+            booking.IsPaid = true;
+            booking.PaymentDate = DateTime.Now;
+
+            _context.Update(booking);
+            await _context.SaveChangesAsync();
+        }
+
         #endregion
 
         #region Private Methods

@@ -17,7 +17,7 @@
                 <th>Car</th>
 
                 <th>Is Paid</th>
-                <th>Payment Date</th>
+
                 <th>Actions</th>
             </tr>
         </thead>
@@ -32,23 +32,26 @@
                 <td>{{booking.car?.name}}</td>
 
                 <td>
-                    <span *ngIf="booking.isPaid">
+                    <span *ngIf="booking.isPaid" matTooltip="Paid On: {{booking.paymentDate | date: 'short'}}">
                         <mat-icon class="text-success">check_circle</mat-icon>
                     </span>
                     <span *ngIf="booking.isPaid == false">
                         <mat-icon class="text-danger">cancel</mat-icon>
                     </span>
                 </td>
-                <td>{{booking.paymentDate | date: 'short'}}</td>
+
                 <td>
-                    <a class="text-info" [routerLink]="['/bookings/', booking.id]">
+                    <a class="text-info" matTooltip="Booking Details" [routerLink]="['/bookings/', booking.id]">
                         <mat-icon>info</mat-icon>
                     </a>
-                    <a class="ml-1" [routerLink]="['/bookings/edit', booking.id]">
+                    <a class="ml-1" matTooltip="Edit Booking" [routerLink]="['/bookings/edit', booking.id]">
                         <mat-icon>edit</mat-icon>
                     </a>
-                    <a class="text-danger pointer" (click)="deleteBooking(booking.id)">
+                    <a class="text-danger pointer" (click)="deleteBooking(booking.id)" matTooltip="Delete Booking">
                         <mat-icon>delete</mat-icon>
+                    </a>
+                    <a *ngIf="booking.isPaid == false" class="pointer" matTooltip="Pay Booking" (click)="payBooking(booking.id)">
+                        <mat-icon>credit_card</mat-icon>
                     </a>
                 </td>
             </tr>

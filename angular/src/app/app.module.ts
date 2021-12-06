@@ -26,6 +26,7 @@ import { BookingComponent } from './booking/booking.component';
 import { BookingDetailsComponent } from './booking/booking-details/booking-details.component';
 import { BookingAddEditComponent } from './booking/booking-add-edit/booking-add-edit.component';
 import { BookingDeleteDialogComponent } from './booking/booking-delete-dialog/booking-delete-dialog.component';
+import { PayBookingDialogComponent } from './booking/pay-booking-dialog/pay-booking-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { BookingDeleteDialogComponent } from './booking/booking-delete-dialog/bo
     BookingComponent,
     BookingDetailsComponent,
     BookingAddEditComponent,
-    BookingDeleteDialogComponent
+    BookingDeleteDialogComponent,
+    PayBookingDialogComponent
   ],
   imports: [
     BrowserModule,
